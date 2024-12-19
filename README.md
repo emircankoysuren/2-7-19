@@ -1,3 +1,12 @@
+ // Program iki ayrı dosyadan veri okuyan ve siparişin toplam kalori miktarını hesaplayan bir C programıdır. Kod stdio.h kütüphanesi ile dosya işlemlerini yönetmekte, string h kütüphanesi ile string işlemlerini yürütmektedir. Kalori.txt ve sipariş.txt sırasıyla yiyecek isimlerini,kalori değerlerini ve sipariş edilen yiyecekler ve miktarlarını içeren dosyalardır. Dosyanın açılıp açılmaması kontrol edilmiştir. Kodda yer alan kalori_string ve sipariş_string yiyecek isimlerini tutar, kalori_float ve sipariş_float ise kalori değeri ve sipariş miktarını tutan dizilerdir. Dosyalardan veriler fscanf ile okunur döngü feof ile dosyanın sonuna kadar okunup okunmaması kontrol edilir. Tüm sipariş işlemleri sırayla kontrol edilir ve yiyecek isimleriyle karşılaştırılır stricmp fonksiyonu sayesinde toplam değişkenine eklenir, ekrana yazdırılır ve açılan dosyalar kapatılır. 
+
+
+
+
+
+
+
+
 #include <stdio.h>
 #include <string.h>
 
