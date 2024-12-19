@@ -9,12 +9,6 @@
  // ekrana yazdırılır ve açılan dosyalar kapatılır. 
 
 
-
-
-
-
-
-
 #include <stdio.h>
 #include <string.h>
 
