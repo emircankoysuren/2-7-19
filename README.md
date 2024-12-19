@@ -13,7 +13,7 @@ int main(void)
     if(siparis == NULL)
     {
       
-  }
+   }
   
 
    char kalori_string[100][20];
@@ -55,8 +55,8 @@ int main(void)
    toplam=toplam+siparis_float[k]*kalori_float[l];
             }
 
-        }
-    }
+ }
+ }
    
 
    printf("Siparisiniz Toplam %0.3f kaloridir.",toplam);
