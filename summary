@@ -11,11 +11,14 @@
 
 #include <stdio.h>
 #include <string.h>
+// stdio.h kütüphanesi dosya işlemleri ve temel giriş/çıkış işlemleri için kullanılıyor. 
+// string.h kütüphanesi, string karşılaştırmaları ve işlemleri için kullanılıyor.
 
 
 int main(void)
 {
-   
+   // İki dosyayı okuma modunda açıyoruz ilk dosya yiyecek isimleri ve kalori değerlerini içeriyor 
+    // ikinci dosya sipariş listesini içeriyor
 
  FILE * kalori = fopen("C:\\project\\txtdosyalari\\kalori.txt", "r");
     FILE * siparis= fopen("C:\\project\\txtdosyalari\\siparis.txt", "r");
@@ -28,26 +31,31 @@ int main(void)
     if(siparis == NULL)
     {
        
- printf("Dosya acilikren hata aldi");
+ printf("Dosya acilikren hata aldi"); // siparis.txt dosyası açılamazsa hata mesajı yazdırılır ve program sonlandırılır.
  return -32;
     }
-    
+
+    // kalori ve sipariş dosyasındaki verileri depolamak için diziler tanımlanıyor
+
 char kalori_string[100][20];
 float kalori_float[100];
 char siparis_string[100][20];
  float siparis_float[100];
 float toplam =0;
- int i=0;
+ int i=0; // kalori dosyasındaki öğelerin sayacını tutar.
  do
     {
         fscanf(kalori, "%s", kalori_string[i]);
         fscanf(kalori, "%f", &kalori_float[i]);
         i++; // kalori dosyasındaki öğelerin sayacını tutar.
 
- } while(!feof(kalori)); 
+ } while(!feof(kalori));  // Dosyanın sonuna gelene kadar okuma işlemini sürdürür.
 
-int j=0; 
+int j=0;  // Sipariş dosyasındaki öğelerin sayacını tutar.
  do {
+
+// Sipariş edilen yiyecek ismimleri ve miktarları okunuyor.
+
         fscanf(siparis, "%s", siparis_string[j]);
         fscanf(siparis, "%f", &siparis_float[j]);
         j++;
@@ -56,18 +64,22 @@ int j=0;
   for(int k=0;k<j;k++)  {
    
    for(int l=0;l<i;l++) {
+// Eğer sipariş edilen yiyecek ile kalori listesindeki yiyecek aynı ise:
+
+// stricmp büyük/küçük harf duyarsız karşılaştırma yapar.
 
 if(stricmp(siparis_string[k],kalori_string[l])==0)   {
                
-
+// Sipariş miktarı ile yiyeceğin kalori değeri çarpılarak toplam kaloriye eklenir.
  toplam=toplam+siparis_float[k]*kalori_float[l];
 }
 }
 }
     
-
+// Toplam kalori miktarını ekrana yazdırıyoruz
 printf("Siparisiniz Toplam %0.3f kaloridir.",toplam);
 
+// dosyaları kapatıyoruz
 fclose(siparis);
 fclose(kalori);
 return 0;
